@@ -1,0 +1,15 @@
+# MindSprint AI — Backend Dependencies
+# Install with: py -m pip install -r requirements.txt
+#
+# Versions pinned to the minimum that ships pre-built wheels for Python 3.14.
+# pydantic-core < 2.28 had no cp314 wheel and required a Rust compiler to build.
+
+fastapi>=0.115.5,<1.0.0          # Web framework (pure-Python wheel, no compilation)
+uvicorn[standard]>=0.32.1,<1.0.0 # ASGI server (pure-Python wheel, no compilation)
+pydantic[email]>=2.11.0,<3.0.0   # Data validation — 2.11+ ships pydantic-core cp314 wheels
+python-dotenv>=1.0.1,<2.0.0      # Loads .env file into environment variables
+python-multipart>=0.0.20,<1.0.0  # Needed for form data (file uploads later)
+groq>=1.2.0,<2.0.0               # Groq SDK — calls llama-3.3-70b-versatile
+sqlalchemy>=2.0.0,<3.0.0         # ORM — maps Python classes to PostgreSQL tables
+psycopg2-binary>=2.9.0,<3.0.0   # PostgreSQL driver used by SQLAlchemy
+pypdf>=4.0.0,<7.0.0              # PDF text extraction for /study/generate file upload

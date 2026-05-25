@@ -1,0 +1,57 @@
+# ── Claude ──────────────────────────────────────────────────────────────────
+.claude/
+
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+backend/venv/
+backend/__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+
+# ── Next.js ───────────────────────────────────────────────────────────────────
+.next/
+out/
+.vercel/
+
+# ── Environment variables ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Build / dist ─────────────────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+
+# ── Testing / coverage ───────────────────────────────────────────────────────
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
