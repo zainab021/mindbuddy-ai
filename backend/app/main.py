@@ -73,3 +73,8 @@ def root():
 def health():
     """Detailed health check for load balancers / uptime monitors."""
     return {"status": "healthy", "version": "0.1.0"}
+
+
+@app.get("/debug/cors", tags=["Debug"])
+def debug_cors():
+    return {"allowed_origins": ALLOWED_ORIGINS}
