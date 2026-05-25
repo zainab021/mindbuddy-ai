@@ -34,13 +34,16 @@ DATABASE_URL: str = os.getenv("DATABASE_URL", "")
 GROQ_API_KEY: str | None = os.getenv("GROQ_API_KEY")
 
 # ── CORS (Cross-Origin Resource Sharing) ──────────────────────
-# Set FRONTEND_URL on Render to your Vercel deployment URL.
-# e.g. https://mindbuddy-mifkwr3dd-zainab021s-projects.vercel.app
-# Localhost origins are always included for local development.
+# FRONTEND_URL env var overrides the default for custom deployments.
+# The Vercel production URL is always included so Render works without
+# requiring FRONTEND_URL to be configured.
 FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
 _origin_set: set[str] = {
     FRONTEND_URL,
+    # Production — Vercel frontend
+    "https://mindbuddy-mifkwr3dd-zainab021s-projects.vercel.app",
+    # Local development
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:3001",
