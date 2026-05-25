@@ -42,7 +42,7 @@ FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
 _origin_set: set[str] = {
     FRONTEND_URL,
     # Production — Vercel frontend
-    "https://mindbuddy-mifkwr3dd-zainab021s-projects.vercel.app",
+    "https://mindbuddy-ai.vercel.app",
     # Local development
     "http://localhost:3000",
     "http://127.0.0.1:3000",
