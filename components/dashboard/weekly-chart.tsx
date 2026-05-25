@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
-  Chart as ChartJS, CategoryScale, LinearScale, BarElement,
-  LineElement, PointElement, Tooltip, Filler,
+  Chart as ChartJS,
+  CategoryScale, LinearScale,
+  BarController, LineController,
+  BarElement, LineElement, PointElement, ArcElement,
+  Tooltip, Legend, Filler,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 import { BarChart3, TrendingUp } from "lucide-react";
@@ -12,7 +15,12 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { fetchAnalytics, type ApiWeekDay } from "@/lib/api";
 import { formatMinutes } from "@/lib/utils";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Tooltip, Filler);
+ChartJS.register(
+  CategoryScale, LinearScale,
+  BarController, LineController,
+  BarElement, LineElement, PointElement, ArcElement,
+  Tooltip, Legend, Filler,
+);
 
 function buildChartData(weekly: ApiWeekDay[]) {
   const avgMin = weekly.reduce((s, d) => s + d.studyMinutes, 0) / weekly.length;

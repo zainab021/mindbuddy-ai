@@ -6,8 +6,11 @@ import {
   BarChart3, Clock, Zap, Trophy, TrendingUp, AlertCircle,
 } from "lucide-react";
 import {
-  Chart, CategoryScale, LinearScale, BarElement,
-  LineElement, PointElement, ArcElement, Tooltip, Filler,
+  Chart,
+  CategoryScale, LinearScale,
+  BarController, LineController, DoughnutController,
+  BarElement, LineElement, PointElement, ArcElement,
+  Tooltip, Legend, Filler,
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -16,8 +19,10 @@ import { formatMinutes } from "@/lib/utils";
 import { fetchAnalytics, type AnalyticsData } from "@/lib/api";
 
 Chart.register(
-  CategoryScale, LinearScale, BarElement,
-  LineElement, PointElement, ArcElement, Tooltip, Filler,
+  CategoryScale, LinearScale,
+  BarController, LineController, DoughnutController,
+  BarElement, LineElement, PointElement, ArcElement,
+  Tooltip, Legend, Filler,
 );
 
 const COLOR_MAP: Record<string, "violet" | "blue" | "indigo" | "cyan"> = {
