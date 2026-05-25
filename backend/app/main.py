@@ -44,10 +44,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,      # e.g. ["http://localhost:3000"]
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],                # GET, POST, PATCH, DELETE, OPTIONS, …
-    allow_headers=["*"],                # Authorization, Content-Type, …
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
 )
 
 # ── Register all routers ────────────────────────────────────────────────────

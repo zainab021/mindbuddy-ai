@@ -34,13 +34,16 @@ DATABASE_URL: str = os.getenv("DATABASE_URL", "")
 GROQ_API_KEY: str | None = os.getenv("GROQ_API_KEY")
 
 # ── CORS (Cross-Origin Resource Sharing) ──────────────────────
-# These are the frontend URLs allowed to call this API.
-# Without this, the browser will block requests from Next.js.
+# Set FRONTEND_URL on Render to your Vercel deployment URL.
+# e.g. https://mindbuddy-mifkwr3dd-zainab021s-projects.vercel.app
+# Localhost origins are always included for local development.
 FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
-ALLOWED_ORIGINS: list[str] = [
+_origin_set: set[str] = {
     FRONTEND_URL,
-    "http://localhost:3000",    # Next.js default dev port
-    "http://127.0.0.1:3000",   # Same as above but different format
-    "http://localhost:3001",    # Alt port (useful during testing)
-]
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+}
+
+ALLOWED_ORIGINS: list[str] = sorted(_origin_set)
